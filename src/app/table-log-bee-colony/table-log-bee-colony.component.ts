@@ -1,25 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface HivesElement {
+  id: number;
+  amount: number;
+  hives: number;
+  amountOfHoney: number;
+  dateCollection: Date;
+  dateNextCollection: Date;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
 
 @Component({
   selector: 'app-table-log-bee-colony',
@@ -28,12 +18,38 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TableLogBeeColonyComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  public displayedColumns: string[] = ['id', 'amount', 'hives', 'amountOfHoney', 'dateCollection', 'dateNextCollection'];
+  public dataSource: HivesElement[] = [];
+  public loading = true;
+  public error: any;
 
-  constructor() { }
+  constructor(private apollo: Apollo) {}
 
   ngOnInit() {
+    this.apollo
+      .watchQuery({
+        query: gql`
+          {
+            colony {
+              id
+              amount
+              hives
+              amountOfHoney
+              dateCollection
+              dateNextCollection
+            }
+          }
+        `,
+      })
+      .valueChanges.subscribe(result => {
+        let newObject = {};
+        if (result.data) {
+          newObject = Object.entries(result.data)[0];
+        }
+        if (newObject) {
+          this.dataSource = newObject[1];
+        }
+        this.error = result.errors;
+      });
   }
-
 }
