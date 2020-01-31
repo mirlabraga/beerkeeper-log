@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,10 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee-colony.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TopBarComponent,
+    TableLogBeeColonyComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +30,16 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
     GraphQLModule,
     HttpClientModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    // ----- Material UI
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTableModule,
+  ],
+  exports: [
   ],
   providers: [{
     provide: APOLLO_OPTIONS,
@@ -33,6 +53,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
     },
     deps: [HttpLink]
   }],
-  bootstrap: [AppComponent]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
