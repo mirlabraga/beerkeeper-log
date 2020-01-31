@@ -17,6 +17,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee-colony.component';
+import { MomentModule } from 'ngx-moment';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,9 @@ import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee
     MatIconModule,
     MatMenuModule,
     MatTableModule,
+
+    // ---- Moment Lib
+    MomentModule
   ],
   exports: [
   ],
@@ -47,7 +52,7 @@ import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          uri: "https://o5x5jzoo7z.sse.codesandbox.io/graphql"
+          uri: "https://hasura-beerkeeper-test.herokuapp.com/v1/graphql"
         })
       }
     },
