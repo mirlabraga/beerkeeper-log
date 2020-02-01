@@ -1,15 +1,32 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee-colony.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MomentModule } from 'ngx-moment';
+import { ApolloTestingModule } from 'apollo-angular/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatTableModule,
+        MomentModule,
+        ApolloTestingModule
+
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TopBarComponent,
+        TableLogBeeColonyComponent
       ],
     }).compileComponents();
   }));
@@ -18,18 +35,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'beerkeeper-log'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('beerkeeper-log');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('beerkeeper-log app is running!');
   });
 });
