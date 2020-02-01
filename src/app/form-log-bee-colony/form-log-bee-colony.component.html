@@ -1,0 +1,26 @@
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Amount">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Hives">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Amount of Honey">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickerDateCollection" placeholder="Date of Collection">
+    <mat-datepicker-toggle matSuffix [for]="pickerDateCollection"></mat-datepicker-toggle>
+    <mat-datepicker #pickerDateCollection></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="pickerDateNextCollection" placeholder="Date of Next Collection">
+    <mat-datepicker-toggle matSuffix [for]="pickerDateNextCollection"></mat-datepicker-toggle>
+    <mat-datepicker #pickerDateNextCollection></mat-datepicker>
+  </mat-form-field>
+
+</div>
