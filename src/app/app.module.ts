@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,15 +16,24 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
-import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee-colony.component';
+import { TableLogBeeColonyComponent } from './components/table-log-bee-colony/table-log-bee-colony.component';
 import { MomentModule } from 'ngx-moment';
+import { environment } from './../environments/environment';
+import { DialogLogBeeColonyComponent } from './components/dialog-log-bee-colony/dialog-log-bee-colony.component';
+import { FormLogBeeColonyComponent } from './components/form-log-bee-colony/form-log-bee-colony.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    TableLogBeeColonyComponent
+    TableLogBeeColonyComponent,
+    DialogLogBeeColonyComponent,
+    FormLogBeeColonyComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +49,11 @@ import { MomentModule } from 'ngx-moment';
     MatIconModule,
     MatMenuModule,
     MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRippleModule,
 
     // ---- Moment Lib
     MomentModule
@@ -52,13 +66,14 @@ import { MomentModule } from 'ngx-moment';
       return {
         cache: new InMemoryCache(),
         link: httpLink.create({
-          uri: "https://hasura-beerkeeper-test.herokuapp.com/v1/graphql"
+          uri: environment.apiUrl
         })
       }
     },
     deps: [HttpLink]
   }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents: [DialogLogBeeColonyComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

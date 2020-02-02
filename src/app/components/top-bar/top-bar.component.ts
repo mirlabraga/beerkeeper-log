@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogLogBeeColonyComponent } from '../components/dialog-log-bee-colony/dialog-log-bee-colony.component';
+import { DialogLogBeeColonyComponent } from '../dialog-log-bee-colony/dialog-log-bee-colony.component';
 
 @Component({
   selector: 'app-top-bar',

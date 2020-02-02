@@ -2,15 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
-export interface HivesElement {
-  id: number;
-  amount: number;
-  hives: number;
-  amountOfHoney: number;
-  dateCollection: Date;
-  dateNextCollection: Date;
-}
-
 @Component({
   selector: 'app-table-log-bee-colony',
   templateUrl: './table-log-bee-colony.component.html',
@@ -19,7 +10,7 @@ export interface HivesElement {
 export class TableLogBeeColonyComponent implements OnInit {
 
   public displayedColumns: string[] = ['id', 'amount', 'hives', 'amountOfHoney', 'dateCollection', 'dateNextCollection'];
-  public dataSource: HivesElement[] = [];
+  public dataSource: ILog[] = [];
   public loading = true;
   public error: any;
 

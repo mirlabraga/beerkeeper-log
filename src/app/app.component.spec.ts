@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { TableLogBeeColonyComponent } from './table-log-bee-colony/table-log-bee-colony.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { TableLogBeeColonyComponent } from './components/table-log-bee-colony/table-log-bee-colony.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
