@@ -25,6 +25,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterModule } from '@angular/router'
 
 
 @NgModule({
@@ -44,6 +47,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     HttpLinkModule,
     CommonModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     // ----- Material UI
     MatButtonModule,
     MatIconModule,
@@ -54,9 +58,13 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
+    MatFormFieldModule,
 
     // ---- Moment Lib
-    MomentModule
+    MomentModule,
+
+    // ----- Router
+    RouterModule.forRoot([])
   ],
   exports: [
   ],

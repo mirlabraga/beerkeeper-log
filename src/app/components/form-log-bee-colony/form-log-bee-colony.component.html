@@ -1,26 +1,49 @@
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Amount">
-  </mat-form-field>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-content>
+      <form [formGroup]="logFormGroup" autocomplete="off" novalidate (ngSubmit)="createLog(logFormGroup.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
 
-  <mat-form-field>
-    <input matInput placeholder="Hives">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Amount" type="number" formControlName="amount" id="amount">
+          <mat-hint fxLayoutAlign="end">Not more then 60 numbers.</mat-hint>
+          <mat-error *ngIf="hasError('amount', 'required')">Amount is required</mat-error>
+          <mat-error *ngIf="hasError('amount', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Amount of Honey">
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Hives" formControlName="hives" id="hives">
+          <mat-hint fxLayoutAlign="end">Not more then 60 numbers.</mat-hint>
+          <mat-error *ngIf="hasError('hives', 'required')">Hives is required</mat-error>
+          <mat-error *ngIf="hasError('hives', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="pickerDateCollection" placeholder="Date of Collection">
-    <mat-datepicker-toggle matSuffix [for]="pickerDateCollection"></mat-datepicker-toggle>
-    <mat-datepicker #pickerDateCollection></mat-datepicker>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Amount of Honey" type="number" formControlName="amountOfHoney" id="amountOfHoney">
+          <mat-hint fxLayoutAlign="end">Not more then 60 numbers.</mat-hint>
+          <mat-error *ngIf="hasError('hives', 'required')">Amount of Honey is required</mat-error>
+          <mat-error *ngIf="hasError('hives', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="pickerDateNextCollection" placeholder="Date of Next Collection">
-    <mat-datepicker-toggle matSuffix [for]="pickerDateNextCollection"></mat-datepicker-toggle>
-    <mat-datepicker #pickerDateNextCollection></mat-datepicker>
-  </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerDateCollection" placeholder="Date of Collection" formControlName="dateCollection" id="dateCollection"
+            readonly (click)="pickerDateCollection.open()">
+          <mat-datepicker-toggle matSuffix [for]="pickerDateCollection"></mat-datepicker-toggle>
+          <mat-datepicker #pickerDateCollection></mat-datepicker>
+        </mat-form-field>
 
-</div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerDateNextCollection" placeholder="Date of Next Collection" formControlName="dateNextCollection" id="dateNextCollection"
+          readonly (click)="pickerDateNextCollection.open()">
+          <mat-datepicker-toggle matSuffix [for]="pickerDateNextCollection"></mat-datepicker-toggle>
+          <mat-datepicker #pickerDateNextCollection></mat-datepicker>
+        </mat-form-field>
+
+      </form>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center">
+      <button mat-raised-button color="primary" [disabled]="!logFormGroup.valid">Create</button>
+      <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</section>

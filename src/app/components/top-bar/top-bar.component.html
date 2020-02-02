@@ -1,11 +1,11 @@
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
   <mat-icon>more_vert</mat-icon>
 </button>
-<button mat-icon-button aria-label="Home">
+<button mat-icon-button aria-label="Home" [routerLink]="['/logs/list']">
   <mat-icon>home</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="newLogBee($event);">
+  <button mat-menu-item [routerLink]="['/logs/create']">
     <mat-icon>save</mat-icon>
     <span>New</span>
   </button>

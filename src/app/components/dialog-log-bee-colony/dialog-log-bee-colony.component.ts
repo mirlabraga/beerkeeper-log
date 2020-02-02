@@ -23,4 +23,7 @@ export class DialogLogBeeColonyComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  save() {
+  }
+
 }
