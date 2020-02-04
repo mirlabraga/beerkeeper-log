@@ -4,6 +4,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MomentModule } from 'ngx-moment';
 import { ApolloTestingController, ApolloTestingModule } from 'apollo-angular/testing';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 describe('TableLogBeeColonyComponent', () => {

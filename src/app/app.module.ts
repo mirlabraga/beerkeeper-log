@@ -61,10 +61,7 @@ import { RouterModule } from '@angular/router'
     MatFormFieldModule,
 
     // ---- Moment Lib
-    MomentModule,
-
-    // ----- Router
-    RouterModule.forRoot([])
+    MomentModule
   ],
   exports: [
   ],

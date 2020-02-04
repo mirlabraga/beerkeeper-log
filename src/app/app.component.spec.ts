@@ -21,7 +21,6 @@ describe('AppComponent', () => {
         MatTableModule,
         MomentModule,
         ApolloTestingModule
-
       ],
       declarations: [
         AppComponent,
