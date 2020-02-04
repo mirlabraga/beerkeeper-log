@@ -19,7 +19,6 @@ import {MatTableModule} from '@angular/material/table';
 import { TableLogBeeColonyComponent } from './components/table-log-bee-colony/table-log-bee-colony.component';
 import { MomentModule } from 'ngx-moment';
 import { environment } from './../environments/environment';
-import { DialogLogBeeColonyComponent } from './components/dialog-log-bee-colony/dialog-log-bee-colony.component';
 import { FormLogBeeColonyComponent } from './components/form-log-bee-colony/form-log-bee-colony.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -27,7 +26,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RouterModule } from '@angular/router'
+import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
 
 
 @NgModule({
@@ -35,8 +34,8 @@ import { RouterModule } from '@angular/router'
     AppComponent,
     TopBarComponent,
     TableLogBeeColonyComponent,
-    DialogLogBeeColonyComponent,
-    FormLogBeeColonyComponent
+    FormLogBeeColonyComponent,
+    SuccessDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +77,7 @@ import { RouterModule } from '@angular/router'
     deps: [HttpLink]
   }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  entryComponents: [DialogLogBeeColonyComponent],
+  entryComponents: [SuccessDialogComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
