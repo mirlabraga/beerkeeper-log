@@ -2,6 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
+const GET_LOGS = gql`
+  {
+    log_colony {
+      id
+      amount
+      hives
+      amountOfHoney
+      dateCollection
+      dateNextCollection
+    }
+  }
+`;
+
 @Component({
   selector: 'app-table-log-bee-colony',
   templateUrl: './table-log-bee-colony.component.html',
@@ -19,20 +32,10 @@ export class TableLogBeeColonyComponent implements OnInit {
   ngOnInit() {
     this.apollo
       .watchQuery({
-        query: gql`
-          {
-            colony {
-              id
-              amount
-              hives
-              amountOfHoney
-              dateCollection
-              dateNextCollection
-            }
-          }
-        `,
+        query: GET_LOGS
       })
       .valueChanges.subscribe(result => {
+        //result => result.data && result.data.colony
         let newObject = {};
         if (result.data) {
           newObject = Object.entries(result.data)[0];
