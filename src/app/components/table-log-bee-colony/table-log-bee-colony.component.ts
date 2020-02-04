@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { ILog } from './../../models/log.model';
 
 const GET_LOGS = gql`
   {
@@ -22,7 +23,8 @@ const GET_LOGS = gql`
 })
 export class TableLogBeeColonyComponent implements OnInit {
 
-  public displayedColumns: string[] = ['id', 'amount', 'hives', 'amountOfHoney', 'dateCollection', 'dateNextCollection'];
+  public displayedColumns: string[] = ['id', 'amount', 'hives', 'amountOfHoney', 'dateCollection', 'dateNextCollection',
+   'details', 'update', 'delete'];
   public dataSource: ILog[] = [];
   public loading = true;
   public error: any;

@@ -3,6 +3,9 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { ILog } from './../../models/log.model';
+import { SuccessDialogComponent } from '../../shared/dialogs/success-dialog/success-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-log-bee-colony',
@@ -12,8 +15,9 @@ import gql from 'graphql-tag';
 export class FormLogBeeColonyComponent implements OnInit {
 
   public logFormGroup: FormGroup;
+  private dialogConfig;
 
-  constructor(private apollo: Apollo, private location: Location) { }
+  constructor(private apollo: Apollo, private location: Location,  private dialog: MatDialog) { }
 
   ngOnInit() {
     this.logFormGroup = new FormGroup({
@@ -23,6 +27,13 @@ export class FormLogBeeColonyComponent implements OnInit {
       dateCollection: new FormControl(new Date()),
       dateNextCollection: new FormControl(new Date())
     });
+
+    this.dialogConfig = {
+      height: '200px',
+      width: '400px',
+      disableClose: true,
+      data: { }
+    }
   }
 
   public hasError = (controlName: string, errorName: string) =>{
@@ -58,7 +69,12 @@ export class FormLogBeeColonyComponent implements OnInit {
       variables: {objects: logToCreate}
     }).subscribe(result => {
       console.log(result.data);
-    })
+      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+      dialogRef.afterClosed()
+        .subscribe(result => {
+          this.location.back();
+        });
+      })
   }
 
   public onCancel = () => {
