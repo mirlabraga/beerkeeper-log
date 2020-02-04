@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import {Location} from '@angular/common';
-
+import { Location } from '@angular/common';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'app-form-log-bee-colony',
@@ -12,7 +13,7 @@ export class FormLogBeeColonyComponent implements OnInit {
 
   public logFormGroup: FormGroup;
 
-  constructor(private location: Location) { }
+  constructor(private apollo: Apollo, private location: Location) { }
 
   ngOnInit() {
     this.logFormGroup = new FormGroup({
@@ -28,9 +29,36 @@ export class FormLogBeeColonyComponent implements OnInit {
     return this.logFormGroup.controls[controlName].hasError(errorName);
   }
 
-  public createOwner = (logFormValue) => {
+  public onCreate = () => {
     if (this.logFormGroup.valid) {
+      this.executeLogCreation();
     }
+  }
+
+  public executeLogCreation = () => {
+    let log: ILog = {
+      amount: this.logFormGroup.get('amount').value,
+      hives: this.logFormGroup.get('hives').value,
+      amountOfHoney: this.logFormGroup.get('amountOfHoney').value,
+      dateCollection: this.logFormGroup.get('dateCollection').value,
+      dateNextCollection: this.logFormGroup.get('dateNextCollection').value
+    }
+    this.createLog(log);
+  }
+
+  public createLog = (logToCreate: ILog) => {
+    this.apollo.mutate({
+      mutation: gql`mutation insert_article($objects: [log_colony_insert_input!]!) {
+        insert_log_colony(objects: $objects) {
+          returning {
+            id
+          }
+        }
+      }`,
+      variables: {objects: logToCreate}
+    }).subscribe(result => {
+      console.log(result.data);
+    })
   }
 
   public onCancel = () => {

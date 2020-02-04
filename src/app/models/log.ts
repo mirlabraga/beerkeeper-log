@@ -1,5 +1,5 @@
 interface ILog  {
-    id: number;
+    id?: number;
     amount: number;
     hives: number;
     amountOfHoney: number;
