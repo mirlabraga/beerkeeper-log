@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://hasura-beerkeeper-test.herokuapp.com/v1/graphql'
 };
