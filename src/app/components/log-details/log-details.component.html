@@ -1,0 +1,25 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>Details for Outcome</mat-card-title>
+        <mat-card-content>
+          <div fxLayout="column wrap" fxLayoutGap="40px">
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Days after the last collection date</strong></div>
+              <div fxFlex>{{log && log.id}}</div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Is Overproduction</strong></div>
+            </div>
+
+            <div fxLayout="row wrap" fxFlex>
+              <div fxFlex><strong>Result Overproduction</strong></div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+          <button type="button" mat-raised-button color="warn" (click)="onCancel()">Back</button>
+        </mat-card-actions>
+      </mat-card>
+</section>

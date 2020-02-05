@@ -27,6 +27,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
+import { LogDetailsComponent } from './components/log-details/log-details.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-
     TopBarComponent,
     TableLogBeeColonyComponent,
     FormLogBeeColonyComponent,
-    SuccessDialogComponent
+    SuccessDialogComponent,
+    LogDetailsComponent
   ],
   imports: [
     BrowserModule,

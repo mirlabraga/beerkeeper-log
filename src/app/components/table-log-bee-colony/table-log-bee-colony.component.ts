@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { ILog } from './../../models/log.model';
+import { Router } from '@angular/router';
 
 const GET_LOGS = gql`
   {
@@ -29,7 +30,7 @@ export class TableLogBeeColonyComponent implements OnInit {
   public loading = true;
   public error: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private router: Router) {}
 
   ngOnInit() {
     this.apollo
@@ -49,8 +50,9 @@ export class TableLogBeeColonyComponent implements OnInit {
       });
   }
 
-  public redirectToDetails = (id: string) => {
-
+  public redirectToDetails = (id: number) => {
+    let url: string = `/details/${id}`;
+    this.router.navigate([url]);
   }
 
 }
