@@ -48,4 +48,9 @@ export class TableLogBeeColonyComponent implements OnInit {
         this.error = result.errors;
       });
   }
+
+  public redirectToDetails = (id: string) => {
+
+  }
+
 }
