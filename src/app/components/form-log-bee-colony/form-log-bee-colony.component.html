@@ -5,7 +5,7 @@
       fxLayoutAlign="center center" fxLayoutGap="10px">
 
         <mat-form-field>
-          <input matInput placeholder="Amount" type="number" formControlName="amount" id="amount">
+          <input matInput placeholder="Amount of Bees" type="number" formControlName="amount" id="amount">
           <mat-hint fxLayoutAlign="end">Not more then 60 numbers.</mat-hint>
           <mat-error *ngIf="hasError('amount', 'required')">Amount is required</mat-error>
           <mat-error *ngIf="hasError('amount', 'maxlength')">You have more than 60 characters</mat-error>
