@@ -52,6 +52,9 @@ export class LogDetailsComponent implements OnInit, OnDestroy {
       })
       .valueChanges.subscribe(({data}) => {
         this.log = Object.entries(data)[0][1];
+        this.daysAftherLastCollection = this.logService.getDaysAftherLastCollection(this.log.dateCollection);
+        this.isOverproduction = this.logService.isOverproduction(this.log.amountOfHoney, this.log.dateNextCollection);
+        this.resultOverproduction = this.logService.getProductionValue(this.log.hives, this.log.hives, this.log.dateCollection);
       });
   }
 

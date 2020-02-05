@@ -5,16 +5,19 @@
           <div fxLayout="column wrap" fxLayoutGap="40px">
 
             <div fxLayout="row wrap" fxFlex>
-              <div fxFlex><strong>Days after the last collection date</strong></div>
-              <div fxFlex>{{log && log.id}}</div>
+              <div fxFlex><strong>Honey is collected</strong></div>
+              <div fxFlex>{{log && log.dateCollection}}</div>
+              <div fxFlex>{{daysAftherLastCollection}} of days after the last collection</div>
             </div>
 
             <div fxLayout="row wrap" fxFlex>
               <div fxFlex><strong>Is Overproduction</strong></div>
+              <div fxFlex>{{isOverproduction}}</div>
             </div>
 
             <div fxLayout="row wrap" fxFlex>
               <div fxFlex><strong>Result Overproduction</strong></div>
+              <div fxFlex>{{resultOverproduction}}</div>
             </div>
           </div>
         </mat-card-content>
