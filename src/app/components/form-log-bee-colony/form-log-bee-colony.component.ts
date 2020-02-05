@@ -59,7 +59,7 @@ export class FormLogBeeColonyComponent implements OnInit {
 
   public createLog = (logToCreate: ILog) => {
     this.apollo.mutate({
-      mutation: gql`mutation insert_article($objects: [log_colony_insert_input!]!) {
+      mutation: gql`mutation insert_log($objects: [log_colony_insert_input!]!) {
         insert_log_colony(objects: $objects) {
           returning {
             id
