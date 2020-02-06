@@ -39,7 +39,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 * Check date objects
 * Add continuous integration
 * Increase test coverage
-* Add Pagination
+* Add Pagination and Observator on Table
+* Add Loading
 
 ## Further help
 
