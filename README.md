@@ -24,6 +24,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## GraphQL
 
+[Playgroud](https://o5x5jzoo7z.sse.codesandbox.io/graphql)
+
 ![Image description](https://i.ibb.co/3RFQQpV/Captura-de-Tela-2020-02-06-a-s-11-03-36-AM.png)
 ![Image description](https://i.ibb.co/xYGmBDh/Captura-de-Tela-2020-02-06-a-s-11-03-45-AM.png)
 ![Image description](https://i.ibb.co/FHQgmSh/Captura-de-Tela-2020-02-06-a-s-11-03-53-AM.png)

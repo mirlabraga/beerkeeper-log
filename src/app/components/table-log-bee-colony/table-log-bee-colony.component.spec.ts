@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MomentModule } from 'ngx-moment';
 import { ApolloTestingController, ApolloTestingModule } from 'apollo-angular/testing';
 import { AppRoutingModule } from '../../app-routing.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 describe('TableLogBeeColonyComponent', () => {
@@ -19,7 +20,8 @@ describe('TableLogBeeColonyComponent', () => {
       imports: [
         ApolloTestingModule,
         MatTableModule,
-        MomentModule
+        MomentModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();
