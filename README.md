@@ -22,6 +22,25 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## GraphQL
+
+![Image description](https://i.ibb.co/3RFQQpV/Captura-de-Tela-2020-02-06-a-s-11-03-36-AM.png)
+![Image description](https://i.ibb.co/xYGmBDh/Captura-de-Tela-2020-02-06-a-s-11-03-45-AM.png)
+![Image description](https://i.ibb.co/FHQgmSh/Captura-de-Tela-2020-02-06-a-s-11-03-53-AM.png)
+
+## Application
+
+![](http://g.recordit.co/fFblw7B8wT.gif)
+
+
+## Next Version
+
+* Refactor Object.entries(data)[0][1]
+* Check date objects
+* Add continuous integration
+* Increase test coverage
+* Add Pagination
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
