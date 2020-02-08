@@ -29,10 +29,16 @@ export class TableLogBeeColonyComponent implements OnInit {
   public dataSource: ILog[] = [];
   public loading = true;
   public error: any;
+  public config: any;
 
   constructor(private apollo: Apollo, private router: Router) {}
 
   ngOnInit() {
+    this.loadLogsOfBees();
+    this.loadPaginationConfig();
+  }
+
+  public loadLogsOfBees = () => {
     this.apollo
       .watchQuery({
         query: GET_LOGS
@@ -50,9 +56,21 @@ export class TableLogBeeColonyComponent implements OnInit {
       });
   }
 
+  public loadPaginationConfig = () => {
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItems: this.dataSource.length
+    };
+  }
+
   public redirectToDetails = (id: number) => {
     let url: string = `/details/${id}`;
     this.router.navigate([url]);
+  }
+
+  public pageChanged = (event: any) => {
+    this.config.currentPage = event;
   }
 
 }

@@ -27,13 +27,6 @@ export class FormLogBeeColonyComponent implements OnInit {
       dateCollection: new FormControl(new Date()),
       dateNextCollection: new FormControl(new Date())
     });
-
-    this.dialogConfig = {
-      height: '200px',
-      width: '400px',
-      disableClose: true,
-      data: { }
-    }
   }
 
   public hasError = (controlName: string, errorName: string) =>{
@@ -68,8 +61,17 @@ export class FormLogBeeColonyComponent implements OnInit {
       }`,
       variables: {objects: logToCreate}
     }).subscribe(result => {
-      console.log(result.data);
-      let dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+      console.log(result);
+      const newObject = Object.entries(result.data)[0];
+      let dialogRef = this.dialog.open(SuccessDialogComponent, {
+        height: '200px',
+        width: '400px',
+        disableClose: true,
+        data: {
+          title: "A new log was successfully added!",
+          message: `Id saved of the log: ${newObject["insert_log_colony"].id}`
+        }
+      });
       dialogRef.afterClosed()
         .subscribe(result => {
           this.location.back();

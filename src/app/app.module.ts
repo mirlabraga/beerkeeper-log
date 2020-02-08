@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
 import { LogDetailsComponent } from './components/log-details/log-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { LogDetailsComponent } from './components/log-details/log-details.compon
     MatNativeDateModule,
     MatRippleModule,
     MatFormFieldModule,
+    NgxPaginationModule,
 
     // ---- Moment Lib
     MomentModule
