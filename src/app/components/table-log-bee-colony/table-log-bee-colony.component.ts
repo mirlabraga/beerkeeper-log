@@ -27,7 +27,7 @@ export class TableLogBeeColonyComponent implements OnInit {
   public displayedColumns: string[] = ['id', 'amount', 'hives', 'amountOfHoney', 'dateCollection', 'dateNextCollection',
    'details', 'update', 'delete'];
   public dataSource: ILog[] = [];
-  public loading = true;
+  public loading = false;
   public error: any;
   public config: any;
 
@@ -39,12 +39,14 @@ export class TableLogBeeColonyComponent implements OnInit {
   }
 
   public loadLogsOfBees = () => {
+    this.loading = true;
     this.apollo
       .watchQuery({
         query: GET_LOGS
       })
       .valueChanges.subscribe(result => {
         //result => result.data && result.data.colony
+        this.loading = false;
         let newObject = {};
         if (result.data) {
           newObject = Object.entries(result.data)[0];

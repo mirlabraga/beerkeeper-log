@@ -29,7 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SuccessDialogComponent } from './shared/dialogs/success-dialog/success-dialog.component';
 import { LogDetailsComponent } from './components/log-details/log-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatNativeDateModule,
     MatRippleModule,
     MatFormFieldModule,
+
+    // ----- Pagniation
     NgxPaginationModule,
+    // ----- Loading
+    NgxLoadingModule.forRoot({}),
 
     // ---- Moment Lib
     MomentModule
