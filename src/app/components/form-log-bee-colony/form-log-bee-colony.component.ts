@@ -63,14 +63,12 @@ export class FormLogBeeColonyComponent implements OnInit {
     }).subscribe(result => {
       console.log(result);
       const newObject = Object.entries(result.data)[0];
+      console.log(newObject);
       let dialogRef = this.dialog.open(SuccessDialogComponent, {
         height: '200px',
         width: '400px',
         disableClose: true,
-        data: {
-          title: "A new log was successfully added!",
-          message: `Id saved of the log: ${newObject["insert_log_colony"].id}`
-        }
+        data: {}
       });
       dialogRef.afterClosed()
         .subscribe(result => {
