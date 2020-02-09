@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MomentModule } from 'ngx-moment';
 import { ApolloTestingModule } from 'apollo-angular/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxLoadingModule } from 'ngx-loading';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -20,7 +22,9 @@ describe('AppComponent', () => {
         MatMenuModule,
         MatTableModule,
         MomentModule,
-        ApolloTestingModule
+        ApolloTestingModule,
+        NgxPaginationModule,
+        NgxLoadingModule.forRoot({})
       ],
       declarations: [
         AppComponent,

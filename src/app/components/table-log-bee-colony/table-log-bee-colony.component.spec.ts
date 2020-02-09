@@ -6,6 +6,7 @@ import { MomentModule } from 'ngx-moment';
 import { ApolloTestingController, ApolloTestingModule } from 'apollo-angular/testing';
 import { AppRoutingModule } from '../../app-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 describe('TableLogBeeColonyComponent', () => {
@@ -21,7 +22,8 @@ describe('TableLogBeeColonyComponent', () => {
         ApolloTestingModule,
         MatTableModule,
         MomentModule,
-        RouterTestingModule
+        RouterTestingModule,
+        NgxPaginationModule
       ]
     })
     .compileComponents();
